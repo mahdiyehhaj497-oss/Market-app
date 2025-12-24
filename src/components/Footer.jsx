@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
       <>
-        <div className="flex justify-center h-auto space-x-80 my-2 bg-gray-800 text-white">
+        <div className="flex justify-center h-auto space-x-80 my-2 bg-[#1f0321] text-white">
           <div className="my-4">
             <ul>
               <h1 className="text-xl font-semibold">Get to Know Us</h1>
@@ -12,7 +12,9 @@ export default function Footer() {
           </div>
           <div className="my-4">
             <ul>
-              <h1 className="text-xl font-semibold my-1 bg-r">Make Money with Us</h1>
+              <h1 className="text-xl font-semibold my-1 bg-r">
+                Make Money with Us
+              </h1>
               <li>Become an Affiliate</li>
               <li>Shop with Points</li>
               <li>Reload Your Balance</li>
@@ -28,5 +30,6 @@ export default function Footer() {
           </div>
         </div>
       </>
+      //<div className="flex flex-wrap-reverse justify-center bg-stone-50 space-x-7 space-y-7"></div>
     );
 }

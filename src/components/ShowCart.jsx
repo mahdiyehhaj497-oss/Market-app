@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react"
 import Carts from "./Carts";
+import Loading from "./Loading";
 let demo
 export default function ShwoCart() {
     const [searchVal, setSearchVal] = useState("")
     const [allPosts, setAllPosts] = useState([])
-    const[filtersData,setFiltersData]=useState([])
+  const [filtersData, setFiltersData] = useState([])
+  const[isLoading,setIsLoading]=useState(true)
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
           .then((response) => response.json())
-          .then((data) => setAllPosts(data));
+        .then((data) => setAllPosts(data))
+    .finally(()=>setIsLoading(false))
     }, [])
     useEffect(() => {
         if (demo) { clearTimeout(demo) }
@@ -21,19 +24,19 @@ export default function ShwoCart() {
     return (
       <>
         <div className="bg-stone-100">
-          <h1 className="font-semibold text-5xl text-sky-700 mx-96">
+          <h1 className="font-semibold text-5xl text-[#6A0572] mx-96">
             products
           </h1>
           <input
-            className="w-1/2 h-9 bg-sky-100 p-3 mx-96 my-6 shadow rounded-lg ring-1 ring-sky-400 "
+            className="w-1/2 h-9 bg-[] p-3 mx-96 my-6 shadow rounded-lg border-2 border-[#D19A8A] "
             value={searchVal}
             onChange={(evt) => setSearchVal(evt.target.value)}
             type="text"
             placeholder="Enter your term"
           />
         </div>
-
-        <div className="flex flex-wrap-reverse justify-center bg-stone-50 space-x-7 space-y-7">
+        {isLoading && <Loading />}
+        <div className="grid grid-cols-5 gap-4 ml-12 mt-10 mb-10 ">
           {filtersData.map((item) => (
             <Carts
               key={item.id}
