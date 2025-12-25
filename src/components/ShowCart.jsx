@@ -6,13 +6,17 @@ export default function ShwoCart() {
     const [searchVal, setSearchVal] = useState("")
     const [allPosts, setAllPosts] = useState([])
   const [filtersData, setFiltersData] = useState([])
-  const[isLoading,setIsLoading]=useState(true)
+  const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
-          .then((response) => response.json())
-        .then((data) => setAllPosts(data))
+          .then((response) => {
+            
+           return response.json();
+          })
+          .then((json) => setAllPosts(json))
     .finally(()=>setIsLoading(false))
     }, [])
+  
     useEffect(() => {
         if (demo) { clearTimeout(demo) }
 
@@ -23,9 +27,9 @@ export default function ShwoCart() {
     
     return (
       <>
-        <div className="bg-stone-100">
-          <h1 className="font-semibold text-5xl text-[#6A0572] mx-96">
-            products
+        <div className="bg-stone-100 ">
+          <h1 className="font-semibold text-5xl text-[#6A0572] mx-96 ">
+            Products
           </h1>
           <input
             className="w-1/2 h-9 bg-[] p-3 mx-96 my-6 shadow rounded-lg border-2 border-[#D19A8A] "

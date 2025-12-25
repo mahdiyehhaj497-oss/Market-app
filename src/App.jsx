@@ -22,7 +22,7 @@ export default function App() {
       {showWelcom && (
         <div className="fixed top-1/2 left-1/2 -translate-1/2 flex justify-center items-center h-[70vh] w-[80vh]  bg-amber-100 ">
           <button
-            className="p-2 absolute top-1 left-1"
+            className="p-2 absolute text-red-800 top-1 left-1"
             onClick={() => setShowWelcom(false)}
           >
             X
